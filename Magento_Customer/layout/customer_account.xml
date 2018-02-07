@@ -16,15 +16,10 @@
                     <referenceBlock name="customer-account-navigation-orders-link"/>
                     <referenceBlock name="customer-account-navigation-downloadable-products-link"/>
                     <referenceBlock name="customer-account-navigation-my-credit-cards-link"/>
-                    <referenceBlock name="customer-account-navigation-checkout-sku-link"/>
                     <referenceBlock name="customer-account-navigation-wish-list-link"/>
-                    <referenceBlock name="customer-account-navigation-customer-balance-link"/>
-                    <referenceBlock name="customer-account-navigation-gift-card-link"/>
-                    <referenceBlock name="customer-account-navigation-giftregistry-link"/>
                     <referenceBlock name="customer-account-navigation-newsletter-subscriptions-link"/>
                     <referenceBlock name="customer-account-navigation-billing-agreements-link"/>
                     <referenceBlock name="customer-account-navigation-product-reviews-link"/>
-                    <referenceBlock name="customer-account-navigation-reward-link"/>
                     <referenceBlock name="customer-account-navigation-magento-invitation-link"/>
                 </block>
             </block>
