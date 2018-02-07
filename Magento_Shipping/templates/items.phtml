@@ -1,40 +1,33 @@
-<div class="dashboard-table">
+<div class="dashboard-table dashboard-table--tab">
     <?php $_order = $block->getOrder(); ?>
+    <?php if ($_order->getTracksCollection()->count()): ?>
+        <?= /* @escapeNotVerified */ $block->getChildHtml('track-all-link') ?>
+    <?php endif; ?>
 
-    <div class="dashboard-table__header">
-        <h5 class="heading heading--fifth-level dashboard-table__title">
-            <?= /* @escapeNotVerified */  __('Shipments') ?>
-        </h5>
-
-        <?php if ($_order->getTracksCollection()->count()) : ?>
-            <?= /* @escapeNotVerified */ $block->getChildHtml('track-all-link') ?>
-        <?php endif; ?>
-
-        <?php if (sizeof($_orders->getItems()) > 0): ?>
-            <a class="link dashboard-table__link" 
-               href="<?= /* @escapeNotVerified */  $block->getPrintAllShipmentsUrl($_order) ?>"
-            >
-                <?= /* @escapeNotVerified */  __('Print All Shipments') ?>
-            </a>
-        <?php endif; ?>
-    </div>
+    <?php if (sizeof($_order->getItems()) > 0): ?>
+        <a class="link dashboard-table__link"
+            href="<?= /* @escapeNotVerified */  $block->getPrintAllShipmentsUrl($_order) ?>"
+        >
+            <?= /* @escapeNotVerified */  __('Print All Shipments') ?>
+        </a>
+    <?php endif; ?>
 
     <?php foreach ($_order->getShipmentsCollection() as $_shipment): ?>
         <div class="dashboard-table__content">
             <div class="dashboard-table__header">
-                <?php 
+                <?php
                     $getTrackingUrl = $this->helper('Magento\Shipping\Helper\Data')
                                            ->getTrackingPopupUrlBySalesModel($_shipment);
                 ?>
 
-                <strong>
+                <h3 class="dashboard-table__title">
                     <?= /* @escapeNotVerified */  __('Shipment #') ?>
                     <?= /* @escapeNotVerified */  $_shipment->getIncrementId(); ?>
-                </strong>
+                </h3>
 
                 <a href="<?= /* @escapeNotVerified */  $block->getPrintShipmentUrl($_shipment) ?>"
                    onclick="this.target='_blank'"
-                   class="link"
+                   class="link dashboard-table__spacer"
                 >
                     <?= /* @escapeNotVerified */  __('Print Shipment') ?>
                 </a>
@@ -44,7 +37,7 @@
                        "popupWindow": {
                            "windowURL": "<?= /* @escapeNotVerified */ $getTrackingUrl ?>",
                            "windowName": "trackshipment",
-                           "width":800, 
+                           "width":800,
                            "height":600,
                            "top":0,
                            "left":0,
@@ -65,14 +58,14 @@
                 <strong>
                     <?= /* @escapeNotVerified */  __('Tracking Number(s):') ?>
                 </strong>
-                
+
                 <ul class="list" id="my-tracking-table-<?= /* @escapeNotVerified */  $_shipment->getId(); ?>">
                     <?php
                         $i = 1;
                         $_size = $tracks->count();
                     ?>
                     <?php foreach ($tracks as $track): ?>
-                        <?php 
+                        <?php
                             $getPopupUrl = $this->helper('Magento\Shipping\Helper\Data')->getTrackingPopupUrlBySalesModel($track);
                         ?>
 
@@ -98,13 +91,13 @@
                                     <?= /* @escapeNotVerified */ $block->escapeHtml($track->getNumber()) ?>
                                 </a>
                             <?php endif; ?>
-                                
+
                             <?php if ($i != $_size): ?>
-                            , 
+                            ,
                             <?php endif; ?>
                             <?php $i++; ?>
                         </li>
-                    <?php endforeach; ?>                    
+                    <?php endforeach; ?>
                 </ul>
             <?php  endif; ?>
 
