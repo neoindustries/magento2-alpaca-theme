@@ -20,7 +20,6 @@
                     <referenceBlock name="customer-account-navigation-newsletter-subscriptions-link"/>
                     <referenceBlock name="customer-account-navigation-billing-agreements-link"/>
                     <referenceBlock name="customer-account-navigation-product-reviews-link"/>
-                    <referenceBlock name="customer-account-navigation-magento-invitation-link"/>
                 </block>
             </block>
         </referenceContainer>
