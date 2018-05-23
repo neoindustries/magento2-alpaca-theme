@@ -7,7 +7,7 @@
     "require": {
       "magento/framework": "*",
       "snowdog/module-alpaca-components": "dev-test",
-      "snowdog/module-menu": "dev-feature/39120"
+      "snowdog/module-menu": "~2.5.0"
     },
     "autoload": {
         "files": [
